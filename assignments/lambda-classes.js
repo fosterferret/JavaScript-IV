@@ -1,6 +1,6 @@
 // CODE here for your Lambda Classes
 class Person {
-    constructor(name, age) {
+    constructor(name, age, location) {
         this.name = name;
         this.age = age;
         this.location = location;
@@ -11,8 +11,8 @@ class Person {
 }
 
 class Instructor extends Person {
-    constructor(name, age, specialty, favLanguage, catchPhrase) {
-        super(name, age);
+    constructor(name, age, location, specialty, favLanguage, catchPhrase) {
+        super(name, age, location);
         this.specialty = specialty;
         this.favLanguage = favLanguage;
         this.catchPhrase = catchPhrase;
@@ -25,14 +25,23 @@ class Instructor extends Person {
     grade (student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
+
+    //stretch
+
+    gradeStudents(student) {
+        let random = (Math.floor(Math.random()*20)) * (Math.random() > 0.5 ? 1 : -1);
+        student.grade += random;
+        student.grade >= 100 ? student.grade = 100 : student.grade += 1;
+    };
 }
 
 class Student extends Person {
-    constructor(name, age, prevBackground, className, favSubjects) {
-        super(name,age);
+    constructor(name, age, location, prevBackground, className, favSubjects, grade) {
+        super(name,age, location);
         this.prevBackground = prevBackground;
         this.className = className;
         this.favSubjects = favSubjects;
+        this.grade = grade;
     }
 
     listsSubjects() {
@@ -48,11 +57,24 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     }
+
+    //stretch
+
+    graduate(student) {
+        if (this.grade >= 70) {
+            return `You get to graduate!`
+        }
+
+        else {
+            let rescoreStudent = new Instructor();
+            return recoreStudent.gradeStudents(student);
+        }
+    }
 }
 
 class ProjectManager extends Person {
-    constructor(name, age, gradClassName, favInstructor) {
-        super(name,age);
+    constructor(name, age, location, gradClassName, favInstructor) {
+        super(name,age, location);
         this.gradClassName = gradClassName;
         this.favInstructor = favInstructor;
     }

@@ -46,7 +46,7 @@ class Student extends Person {
 
     listsSubjects() {
         this.favSubjects.forEach(function(subject) {
-            return `A favorite subject is: ${subject}`;
+            return `One favorite subject is: ${subject}`;
         });
     }
 
@@ -65,10 +65,7 @@ class Student extends Person {
             return `You get to graduate!`
         }
 
-        else {
-            let rescoreStudent = new Instructor();
-            return recoreStudent.gradeStudents(student);
-        }
+        else return `Better luck nex time!`;
     }
 }
 

@@ -8,7 +8,7 @@ Prototype Refactor
 
 */
 //Refactored code - Task 1
-class Person {
+class PersonRF {
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -54,7 +54,7 @@ class Car {
 }
 
 // Refactored code - Task 3
-class Baby extends Person {
+class Baby extends PersonRF {
     constructor(name, age, favoriteToy) {
         super(name, age);
         this.favoriteToy = favoriteToy;
